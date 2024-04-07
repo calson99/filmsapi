@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="FilmsUi.EditWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FilmsUi"
+    xmlns:localData="using:FilmsUi.Models"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBlock Text="Information" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Type:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <ComboBox x:Name="cmbType" Width="80">
+                    <ComboBoxItem Content="Serie"/>
+                    <ComboBoxItem Content="Film"/>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Title:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <TextBox x:Name="txtTitle" Width="200"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Platform:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <TextBox x:Name="txtPlatform" Width="200"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Rating:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <ComboBox x:Name="cmbRating" Width="80">
+                    <ComboBoxItem Content="1"/>
+                    <ComboBoxItem Content="2"/>
+                    <ComboBoxItem Content="3"/>
+                    <ComboBoxItem Content="4"/>
+                    <ComboBoxItem Content="5"/>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Genres:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <ListBox x:Name="lbGenres" SelectionMode="Multiple" Width="150">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate x:DataType="localData:Genres">
+                            <StackPanel>
+                                <TextBlock Text="{Binding Name}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Release Date:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <DatePicker x:Name="dpReleaseDate" Width="300"/>
+            </StackPanel>
+
+            <Button Content="Edit" Name="EditButton" Click="EditButton_Click" Width="100" HorizontalAlignment="Left"/>
+        </StackPanel>
+    </Grid>
+</Window>

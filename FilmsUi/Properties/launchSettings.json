@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "FilmsUi (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "FilmsUi (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
